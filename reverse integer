@@ -1,0 +1,22 @@
+https://leetcode.com/problems/reverse-integer/description/
+
+var reverse = function(n) {
+    
+    let rev = 0;
+    let nCopy = n
+    n = Math.abs(n);
+
+    let limit = Math.pow(2,31)
+
+
+    while(n>0) {
+       let last = n%10;
+       rev = (rev*10) + last;
+       n = Math.floor(n/10)
+    }
+
+    
+    if(rev>limit || rev <-limit) return 0
+
+    return  nCopy < 0 ? rev*-1 : rev
+};
